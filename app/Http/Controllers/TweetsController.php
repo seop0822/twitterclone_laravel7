@@ -9,7 +9,7 @@ class TweetsController extends Controller
 {
     public function index()
     {
-        return view('home', [
+        return view('tweety.index', [
             'tweets' => auth()->user()->timeline()
         ]);
     }
