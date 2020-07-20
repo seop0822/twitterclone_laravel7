@@ -4,12 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| WEB ROUTES
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| HERE IS WHERE YOU CAN REGISTER WEB ROUTES FOR YOUR APPLICATION. THESE
+| ROUTES ARE LOADED BY THE ROUTESERVICEPROVIDER WITHIN A GROUP WHICH
+| CONTAINS THE "WEB" MIDDLEWARE GROUP. NOW CREATE SOMETHING GREAT!
 |
 */
 
@@ -21,11 +21,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/tweets', 'TweetsController@index')->name('home');
     Route::post('/tweets', 'TweetsController@store');
 
-    Route::post('/profiles/{user:name}/follow', 'FollowsController@store');
+    Route::post('/profiles/{user:username}/follow', 'FollowsController@store');
+    Route::get(
+        '/profiles/{user:username}/edit',
+        'ProfileController@edit'
+    )->middleware('can:edit,user');
 
 });
 
-Route::get('/profiles/{user:name}', 'ProfileController@show')->name('profile');
+Route::get('/profiles/{user:username}', 'ProfileController@show')->name('profile');
 
 Auth::routes();
 

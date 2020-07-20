@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username','name', 'email', 'password',
     ];
 
     /**
@@ -57,9 +57,10 @@ class User extends Authenticatable
             ->latest()->get();
     }
 
-    public function path()
+    public function path($append = '')
     {
-        return route('profile', $this->name);
+        $path = route('profile', $this->username);
+        return $append ? "{$path}/{$append}" : $path;
     }
 
 
