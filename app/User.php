@@ -38,7 +38,10 @@ class User extends Authenticatable
 
     public function getAvatarAttribute($value)
     {
-        return asset('storage/' . $value);
+        if($value){
+            return asset('storage/' . $value);
+        }
+        return asset('images/default-avatar.png');
     }
 
     public function tweets()

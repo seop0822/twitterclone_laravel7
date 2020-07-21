@@ -14,6 +14,5 @@ class FollowsController extends Controller
             ->toggleFollow($user);
 
         return back();
-
     }
 }
