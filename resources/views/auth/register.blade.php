@@ -1,7 +1,7 @@
 <x-master>
 <div class="container mx-auto px-y py-4 bg-gray-400">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 ml-8">
             <div class="card">
                 <div class="font-bold text-lg mb-4">{{ __('Register') }}</div>
 
