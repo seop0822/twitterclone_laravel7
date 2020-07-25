@@ -5,4 +5,6 @@
     @empty
         <p class="p-4">아직 트윗이 아무것도 없다</p>
     @endforelse
+
+    {{ $tweets->links() }}
 </div>
